@@ -6,6 +6,7 @@ import com.TNF.Launcher.gfx.Font;
 import com.TNF.Launcher.gfx.Screen;
 import com.TNF.Launcher.utils.AppOutput;
 import com.TNF.Launcher.utils.Client;
+import com.TNF.Launcher.utils.Data;
 import com.TNF.Launcher.utils.Worker;
 
 /**
@@ -30,7 +31,7 @@ public class NewCodeMenu extends Menu{
     	if (running){
     		this.typecode();
     		if (input.enter.clicked){
-    			String Final = "https://crazywolf132.github.io/TNFLauncher/Games/" + code + "/version";
+    			String Final = Data.BaseUrl + "Games/" + code + "/version";
     			if(Client.checkIfURLExists(Final)) {
     	    		AppOutput.printLine("Game exists. Will start downloading.");
     	    		Worker.Download(code);
