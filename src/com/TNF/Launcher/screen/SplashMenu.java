@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package com.TNF.Launcher.screen;
 
 import com.TNF.Launcher.InputHandler;
