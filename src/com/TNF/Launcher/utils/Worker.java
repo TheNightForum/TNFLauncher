@@ -24,12 +24,12 @@ public class Worker {
 	public static void Download(String GameName){
 		File f = new File(Data.locationGames + GameName);
 		if (!f.exists()){
-			f.mkdirs();
+			//f.mkdirs();
 			AppOutput.printLine("Downloading " + GameName + "...");
 			try(
 					ReadableByteChannel in=Channels.newChannel(
-							  
-					new URL(Data.BaseUrl + "Games/" + GameName + "/" + GameName +".zip").openStream());	
+
+					new URL(Data.BaseUrl + "Games/" + GameName + "/" + GameName +".zip").openStream());
 					FileChannel out=new FileOutputStream(Data.locationTemp + GameName + ".zip").getChannel() ) {
 					out.transferFrom(in, 0, Long.MAX_VALUE);
 				}
@@ -44,13 +44,13 @@ public class Worker {
 			Download(GameName);
 		}
 	}
-	
+
 	/**
 	 * This method writes the @GameName to a file
-	 * so then it can be chosen as a playable game. 
+	 * so then it can be chosen as a playable game.
 	 * @param GameName
 	 */
-	
+
 	public static void Do(String GameName){
 		if(!StartUtils.anyInstalled){
 			WriteGeneral.main(WriteGeneral.AnyInstalled, "true");
@@ -64,7 +64,7 @@ public class Worker {
 			    //exception handling left as an exercise for the reader
 			}
 	}
-	
+
 	public static void DownloadUpdate(){
 		float Version = Float.valueOf(Main.VERSION);
 		Version = Version + 0.1f;
@@ -75,8 +75,8 @@ public class Worker {
 		}
 		try(
 				ReadableByteChannel in=Channels.newChannel(
-						
-				new URL(Data.BaseUrl + "Launcher/Launcher-" + Version + ".zip").openStream());	
+
+				new URL(Data.BaseUrl + "Launcher/Launcher-" + Version + ".zip").openStream());
 				FileChannel out=new FileOutputStream(Data.locationTemp + "Launcher.zip").getChannel() ) {
 				out.transferFrom(in, 0, Long.MAX_VALUE);
 				UnZip.main(Data.locationTemp + "Launcher.zip", Data.locationBin);
@@ -84,6 +84,6 @@ public class Worker {
 			catch(IOException ex){
 				AppOutput.printLine("Could not download Launcher.", AppOutput.ERROR);
 			}
-		
+
 	}
 }
