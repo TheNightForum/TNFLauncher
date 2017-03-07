@@ -15,15 +15,15 @@ import com.TNF.Launcher.utils.StartUtils;
 public class Main extends Canvas implements Runnable
 {
 	private static final long serialVersionUID = 2L;
-	
+
 	public static final String NAME = "TNF Launcher";
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "1.1";
 	public static final int HEIGHT = 200;
 	public static final int WIDTH = 300;
 	public static final int SCALE = 3;
 
 	private GameSetup setup = new GameSetup();
-	
+
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	private boolean running = false;
@@ -37,17 +37,17 @@ public class Main extends Canvas implements Runnable
 	public int gameTime = 0;
 
 	public Menu menu;
-	
+
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 		if (menu != null) menu.init(this, input);
 	}
-	
+
 	public GameSetup getSetup()
 	{
 		return this.setup;
 	}
-	
+
 	public void setSetup(GameSetup setup)
 	{
 		this.setup = setup;
@@ -66,7 +66,7 @@ public class Main extends Canvas implements Runnable
 	/**
 	 * Performs a full initialization of the game - graphics, generated levels,
 	 * etc. The result is a fresh new game ready to be played.
-	 * 
+	 *
 	 * This method should NOT be used for loaded games. Loaded games are inited
 	 * as the player starts a new game. After loading them we call initGraphics
 	 * and we are done.
@@ -74,7 +74,7 @@ public class Main extends Canvas implements Runnable
 	public void init() {
 		initGraphics();
 	}
-	
+
 	/**
 	 * Performs initialization of the game graphics.
 	 */
@@ -115,7 +115,7 @@ public class Main extends Canvas implements Runnable
 				unprocessed -= 1;
 				shouldRender = true;
 			}
-			
+
 			if (!running) {
 				shouldRender = false;
 			}
@@ -186,7 +186,7 @@ public class Main extends Canvas implements Runnable
 		g.dispose();
 		bs.show();
 	}
-	
+
 	private void renderGui() {
 		if (this.gameTime > 0) {
 			for (int y = 0; y < 2; y++) {
@@ -194,7 +194,7 @@ public class Main extends Canvas implements Runnable
 					screen.render(x * 8, screen.h - 16 + y * 8, 0 + 12 * 32, Color.get(000, 000, 000, 000), 0);
 				}
 			}
-	
+
 		}
 
 		if (menu != null) {

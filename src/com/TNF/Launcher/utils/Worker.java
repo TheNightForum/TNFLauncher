@@ -76,7 +76,7 @@ public class Worker {
 		try(
 				ReadableByteChannel in=Channels.newChannel(
 
-				new URL(Data.BaseUrl + "Launcher/Launcher-" + Version + ".zip").openStream());
+				new URL("http://zectr.com/repository/Launcher/LatestLauncher/Launcher.zip").openStream());
 				FileChannel out=new FileOutputStream(Data.locationTemp + "Launcher.zip").getChannel() ) {
 				out.transferFrom(in, 0, Long.MAX_VALUE);
 				UnZip.main(Data.locationTemp + "Launcher.zip", Data.locationBin);
