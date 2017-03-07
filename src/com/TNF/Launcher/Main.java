@@ -17,7 +17,7 @@ public class Main extends Canvas implements Runnable
 	private static final long serialVersionUID = 2L;
 
 	public static final String NAME = "TNF Launcher";
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "1.2";
 	public static final int HEIGHT = 200;
 	public static final int WIDTH = 300;
 	public static final int SCALE = 3;
